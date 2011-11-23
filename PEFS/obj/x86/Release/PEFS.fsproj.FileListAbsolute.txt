@@ -1,0 +1,6 @@
+E:\m\VS2010Project\PEFSSolution1\PEFS\bin\Release\PEFS.XML
+E:\m\VS2010Project\PEFSSolution1\PEFS\bin\Release\PEFS.exe
+E:\m\VS2010Project\PEFSSolution1\PEFS\bin\Release\PEFS.pdb
+E:\m\VS2010Project\PEFSSolution1\PEFS\obj\x86\Release\ResolveAssemblyReference.cache
+E:\m\VS2010Project\PEFSSolution1\PEFS\obj\x86\Release\PEFS.exe
+E:\m\VS2010Project\PEFSSolution1\PEFS\obj\x86\Release\PEFS.pdb

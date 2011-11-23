@@ -12,8 +12,8 @@ let getAnswer () =
     let cp = System.Diagnostics.Process.GetCurrentProcess()
     let t1 = cp.TotalProcessorTime
 
-    let answer = PEFS.Problem_00011.run()
-//    let answer = PEFS.Problem_0011rege.run()
+//    let answer = PEFS.Problem_0011.run()
+    let answer = PEFS.Problem_0011rege.run()
 
 //    let answer = Problem_0012.run()
 //    let answer = Problem_0016.run(1000)

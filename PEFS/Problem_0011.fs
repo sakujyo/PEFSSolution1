@@ -1,29 +1,59 @@
 ﻿namespace PEFS
-module Problem_00011 =
+module Problem_0011 =
 //    open Microsoft.FSharp.Collections
+
+    /// 検査したい4種の方向を表します
     let directions = seq {
-        yield fun (x, y) -> (x, y + 1)  // south
-        yield fun (x, y) -> (x + 1, y)  // east
+        yield fun (x, y) -> (x, y + 1)      // south
+        yield fun (x, y) -> (x + 1, y)      // east
         yield fun (x, y) -> (x + 1, y + 1)  // south east
         yield fun (x, y) -> (x + 1, y - 1)  // north east
     }
 
-    let rec muls lambda (x,y) (problem : int list) count (mul : int) =
+    /// 概要:
+    ///     chains個の積を再帰的に計算します。
+    ///
+    /// パラメーター:
+    ///   lambda:
+    ///     方向を表すラムダ式。
+    ///   problem:
+    ///     問題の2次元配列を1次元配列として表したもの。
+    ///   xsize:
+    ///     問題の2次元配列の x 方向のサイズ。
+    ///   ysize:
+    ///     問題の2次元配列の y 方向のサイズ。
+    ///   chains:
+    ///     積を求める要素の数。
+    ///   count:
+    ///     これまでに積を求めた要素の数の初期値と途中経過。
+    ///   mul:
+    ///     積の計算の初期値と途中経過。
+    /// 戻り値:
+    ///   計算した積。
+    let rec muls lambda (x,y) (problem : int list) xsize ysize chains count mul =
         match (x,y) with
-            | (-1,_) | (_,-1) | (20,_) | (_,20) -> -1    // 与えられる数は非負と仮定
+            | (-1,_) | (_,-1) -> -1                       // 与えられる数は非負と仮定
+            | (x,y) when (x = xsize) || (y = ysize) -> -1
             | (x,y) ->
                 match count with
-                | 3 ->
-                    mul * problem.[y * 20 + x]
+                | count when count = chains - 1 ->
+                    mul * problem.[y * xsize + x]
                 | _ ->
-                    muls lambda ((x,y) |> lambda) problem (count + 1) (mul * problem.[y * 20 + x])
+                    muls lambda ((x,y) |> lambda) problem xsize ysize chains (count + 1) (mul * problem.[y * xsize + x])
 
-    let p11 (problem : int list) =
+    /// 概要:
+    ///     問題を解きます。
+    ///
+    /// パラメーター:
+    ///   input:
+    ///     問題を表現する(int の list * xsize * ysize * chains)のタプル。
+    let solve (input : int list * int * int * int) =
+        let problem, xsize, ysize, chains = input
         seq {
-            for x in 0..19 do
-                for y in 0..19 do
+            for x in 0..xsize - 1 do
+                for y in 0..ysize - 1 do
                     for f in directions ->
-                        muls f (x,y) problem 0 1
+                        muls f (x,y) problem xsize ysize chains 0 1
         }
         |> Seq.max
 
@@ -51,4 +81,4 @@ module Problem_00011 =
                         01;70;54;71;83;51;54;69;16;92;33;48;61;43;52;01;89;19;67;48;
         ]
 
-        p11 testdata
+        solve (testdata, 20, 20, 4)

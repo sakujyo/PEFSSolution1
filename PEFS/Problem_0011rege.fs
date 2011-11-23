@@ -67,48 +67,52 @@ A. ((17, 19), [89; 94; 97; 87], 70600674)
 19 80 81 68 05 94 47 69 28 73 92 13 86 52 17 77 04 89 55 40
 04 52 08 83 99 35 99 16 07 97 57 32 16 26 26 79 33 27 98 66
 88 36 68 87 57 62 20 72 03 46 33 67 46 55 12 32 63 93 53 69
-04 42 16 73 38 25 39 11 24 94 72 18 08 46 29 32 40 62 99 36
-20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 99 36 16
-20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 99 57 05 54
-01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 99 89 19 67 48
+04 42 16 73 38 25 39 11 24 94 72 18 08 46 29 32 40 62 76 99
+20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 99 16
+20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 99 05 54
+01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 99 19 67 48
     "
-    let north       (x,y) = (x,y-1) // ↑
-    let northeast   (x,y) = (x+1,y-1) // &#8599;
     let east        (x,y) = (x+1,y) // →
-    let southeast   (x,y) = (x+1,y+1) // &#8600;
     let south       (x,y) = (x,y+1) // ↓
-//    let southwest (x,y) = (x+1,y+1) // &#8601;
-    let southwest   (x,y) = (x-1,y+1) // &#8601;
-    let west        (x,y) = (x-1,y) // ←
-    let northwest   (x,y) = (x-1,y-1)// &#8598;
+    let northeast   (x,y) = (x+1,y-1) // &#8599;
+    let southeast   (x,y) = (x+1,y+1) // &#8600;
+//    let north       (x,y) = (x,y-1) // ↑
+////    let southwest (x,y) = (x+1,y+1) // &#8601;
+//    let southwest   (x,y) = (x-1,y+1) // &#8601;
+//    let west        (x,y) = (x-1,y) // ←
+//    let northwest   (x,y) = (x-1,y-1)// &#8598;
     let weys = seq {
-        yield north
-        yield northeast
         yield east
-        yield southeast
         yield south
-        yield southwest
-        yield west
-        yield northwest
+        yield northeast
+        yield southeast
+//        yield north
+//        yield southwest
+//        yield west
+//        yield northwest
     }
 
     let find () =
         // 探索対象の文字列を1次元配列シーケンスとする。
         let t = text.Replace("\r\n", " ").Trim()
-        let cells = seq { for p in 0..3..t.Length -> int t.[p..p+1] }
+//        let cells = seq { for p in 0..3..t.Length -> int t.[p..p+1] }
+        let cells = seq { for p in 0..3..t.Length -> int t.[p..p+1] } |> Seq.toArray
         // 各方位の計算
         let rec findCells inc (x,y) (l : int list) =
-            match (inc (x,y)) with
+//            match (inc (x,y)) with
+            match (x,y) with
             | (-1,_) | (_,-1) | (20,_) | (_,20) -> ((x,y), [], -1)
             | (x,y) ->
-                match l with
-                | [_;_;_;_;] ->
+//                let cell = Seq.nth (y * 20 + x) cells
+                let cell = cells.[y * 20 + x]
+                match l.Length with
+//                | [_;_;_;_;] ->
+                | 3 ->
                     let num = List.reduce((*)) l
-                    ((x,y), l, num)
+                    ((x,y), l@[cell], num * cell)
                 | _ ->
 //                    let cell = Seq.nth (x*y-1) cells
-                    let cell = Seq.nth (y * 20 + x) cells
-                    findCells inc (x,y) (l@[cell])
+                    findCells inc (inc(x,y)) (l@[cell])
         // 探索
         seq {
 //            for x in 1..20 do
