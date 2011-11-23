@@ -13,9 +13,10 @@ let getAnswer () =
     let t1 = cp.TotalProcessorTime
 
 //    let answer = PEFS.Problem_0011.run()
-    let answer = PEFS.Problem_0011rege.run()
+//    let answer = PEFS.Problem_0011rege.run()
 
-//    let answer = Problem_0012.run()
+    let answer = PEFS.Problem_0012.run()
+
 //    let answer = Problem_0016.run(1000)
 //    let answer = Problem_0016.run(5)
 //    let answer = Problem_0067.run()

@@ -44,14 +44,44 @@
 <member name="">
 
 </member>
-<member name="">
+<member name="M:PEFS.Problem_0011.solve(Microsoft.FSharp.Collections.FSharpList{System.Int32},System.Int32,System.Int32,System.Int32)">
+<summary>
+ 概要:
+     問題を解きます。
 
+ パラメーター:
+   input:
+     問題を表現する(int の list * xsize * ysize * chains)のタプル。
+</summary>
 </member>
-<member name="">
+<member name="M:PEFS.Problem_0011.muls(Microsoft.FSharp.Core.FSharpFunc`2{System.Tuple`2{System.Int32,System.Int32},System.Tuple`2{System.Int32,System.Int32}},System.Int32,System.Int32,Microsoft.FSharp.Collections.FSharpList{System.Int32},System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+<summary>
+ 概要:
+     chains個の積を再帰的に計算します。
 
+ パラメーター:
+   lambda:
+     方向を表すラムダ式。
+   problem:
+     問題の2次元配列を1次元配列として表したもの。
+   xsize:
+     問題の2次元配列の x 方向のサイズ。
+   ysize:
+     問題の2次元配列の y 方向のサイズ。
+   chains:
+     積を求める要素の数。
+   count:
+     これまでに積を求めた要素の数の初期値と途中経過。
+   mul:
+     積の計算の初期値と途中経過。
+ 戻り値:
+   計算した積。
+</summary>
 </member>
-<member name="">
-
+<member name="P:PEFS.Problem_0011.directions">
+<summary>
+ 検査したい4種の方向を表します
+</summary>
 </member>
 <member name="T:PEFS.Problem_0011">
 
@@ -81,6 +111,34 @@
 
 </member>
 <member name="T:PEFS.Problem_0011rege">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:PEFS.Problem_0012.sankakuyakusu(System.Int32,System.Int32,System.Int32)">
+<summary>
+ n 番目の 三角数 s について、約数の個数が y 以上の最初の数を再帰的に探す
+</summary>
+</member>
+<member name="M:PEFS.Problem_0012.yakusu(System.Int32,System.Int32,System.Int32)">
+<summary>
+ yakusu a n count: 
+ a を n = 1 から順に割っていき、約数の個数を count = 0 から数えて返す
+</summary>
+</member>
+<member name="M:PEFS.Problem_0012.sankakusu(System.Int32)">
+<summary>
+ n 番目の三角数を返す
+</summary>
+</member>
+<member name="T:PEFS.Problem_0012">
 
 </member>
 </members>

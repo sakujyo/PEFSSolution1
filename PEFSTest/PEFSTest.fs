@@ -17,10 +17,11 @@ module PEFSTestModule =
         member x.measureCPUTime (func : obj * Constraints.IResolveConstraint * string -> unit) (lazyarg : Lazy<'a>) arg2 arg3 =
             let cp = System.Diagnostics.Process.GetCurrentProcess()
             let t1 = cp.TotalProcessorTime
-            printfn "CPU Time 1: %A" (t1)
+//            printfn "CPU Time 1: %A" (t1)
             func (lazyarg.Force(), arg2, arg3)
             let t2 = cp.TotalProcessorTime
-            printfn "CPU Time 2: %A" (t2)
+//            printfn "CPU Time 2: %A" (t2)
+            printfn "%s" arg3
             printfn "Test CPU Time: %A" (t2 - t1)
 
         static member TestData0000 =
@@ -88,6 +89,22 @@ module PEFSTestModule =
         member x.Problem_0011 (data : (int list * int * int * int) * int) =
             let input, result = data in
             x.measureCPUTime Assert.That (lazy(PEFS.Problem_0011.solve input)) (Is.EqualTo(result)) (sprintf "max product of %A = %A" input result)
+
+        static member TestData0012 =
+            [|
+                [| 1, 1 |];
+                [| 2, 3 |];
+                [| 4, 6 |];
+                [| 6, 28 |];
+                [| 9, 36 |];
+                [| 16, 120 |];
+                [| 501, 76576500 |];
+            |]
+        [<Test;Description("Problem 12 Test")>]
+        [<TestCaseSource("TestData0012")>]
+        member x.Problem_0012 (data : int * int) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0012.solve input)) (Is.EqualTo(result)) (sprintf "the value of the first triangle number to have over %d = %d - 1 divisors = %d" (input - 1) input result)
 
         static member TestData0013 =
             [|

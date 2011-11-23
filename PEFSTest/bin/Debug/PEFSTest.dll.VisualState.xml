@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1016]E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll</TopNode>
-  <SelectedNode>[0-1013]PEFSTest.PEFSTestModule+MyTest.Problem_0011</SelectedNode>
+  <TopNode>[0-1024]E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll</TopNode>
+  <SelectedNode>[0-1012]PEFSTest.PEFSTestModule+MyTest.Problem_0003((37366090917157, [6111983; 6113579]))</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1016]E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll" Expanded="true" />
-    <Node UniqueName="[0-1017]PEFSTest" Expanded="true" />
+    <Node UniqueName="[0-1024]E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll" Expanded="true" />
+    <Node UniqueName="[0-1025]PEFSTest" Expanded="true" />
     <Node UniqueName="[0-1000]PEFSTest.PEFSTestModule+MyTest" Expanded="true" />
     <Node UniqueName="[0-1001]PEFSTest.PEFSTestModule+MyTest.Problem_0000" Expanded="true" />
     <Node UniqueName="[0-1003]PEFSTest.PEFSTestModule+MyTest.Problem_0003" Expanded="true" />
     <Node UniqueName="[0-1013]PEFSTest.PEFSTestModule+MyTest.Problem_0011" Expanded="true" />
+    <Node UniqueName="[0-1016]PEFSTest.PEFSTestModule+MyTest.Problem_0012" Expanded="true" />
   </Nodes>
 </VisualState>
