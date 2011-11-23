@@ -226,3 +226,15 @@ module PEFSTestModule =
 //            Assert.That (NSPEULAR.Problem_0013.run input, Is.EqualTo(result), sprintf "SUMMATION = %A" result)
 //            let t2 = cp.TotalProcessorTime
 //            printfn "Test CPU Time: %A" (t2 - t1)
+
+        static member TestData0016 =
+            [|
+                [| 8, 13 |];
+                [| 15, 26 |];
+                [| 1000, 1366 |];
+            |]
+        [<Test;Description("Problem 16 Test")>]
+        [<TestCaseSource("TestData0016")>]
+        member x.Problem_0016 (data : int * int) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0016.solve input)) (Is.EqualTo(result)) (sprintf "sum of the digits of the number 2^%d = %d" input result)
