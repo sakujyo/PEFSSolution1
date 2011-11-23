@@ -9,3 +9,14 @@ E:\m\VS2010Project\PEFS\PEFSTest\bin\Debug\PEFS.xml
 E:\m\VS2010Project\PEFS\PEFSTest\bin\Debug\nunit.framework.xml
 E:\m\VS2010Project\PEFS\PEFSTest\obj\Debug\PEFSTest.dll
 E:\m\VS2010Project\PEFS\PEFSTest\obj\Debug\PEFSTest.pdb
+E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.XML
+E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll
+E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.pdb
+E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\nunit.framework.dll
+E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFS.exe
+E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFS.pdb
+E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFS.xml
+E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\nunit.framework.xml
+E:\m\VS2010Project\PEFSSolution1\PEFSTest\obj\Debug\ResolveAssemblyReference.cache
+E:\m\VS2010Project\PEFSSolution1\PEFSTest\obj\Debug\PEFSTest.dll
+E:\m\VS2010Project\PEFSSolution1\PEFSTest\obj\Debug\PEFSTest.pdb

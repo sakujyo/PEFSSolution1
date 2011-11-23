@@ -23,7 +23,13 @@
 <member name="">
 
 </member>
+<member name="">
+
+</member>
 <member name="T:PEFSTest.PEFSTestModule">
+
+</member>
+<member name="T:PEFSTestLazyTest">
 
 </member>
 </members>
