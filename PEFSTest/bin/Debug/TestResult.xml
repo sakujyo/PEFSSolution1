@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="E:\m\VS2010Project\PEFS\PEFSTest\bin\Debug\PEFSTest.dll" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-11-23" time="22:20:30">
+  <environment nunit-version="2.5.10.11092" clr-version="2.0.50727.5448" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\sbin\NUnit 2.5.10\bin\net-2.0" machine-name="DC7700" user="m" user-domain="dc7700" />
+  <culture-info current-culture="ja-JP" current-uiculture="ja-JP" />
+  <test-suite type="Assembly" name="E:\m\VS2010Project\PEFS\PEFSTest\bin\Debug\PEFSTest.dll" executed="True" result="Success" success="True" time="24.237" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="PEFSTest" executed="True" result="Success" success="True" time="24.228" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="PEFSTestModule+MyTest" executed="True" result="Success" success="True" time="24.226" asserts="0">
+            <results>
+              <test-suite type="ParameterizedTest" name="Problem_0003" description="Problem 3 Test" executed="True" result="Success" success="True" time="24.214" asserts="0">
+                <results>
+                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0003((37366090917157, [6111983; 6113579]))" executed="True" result="Success" success="True" time="24.207" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
