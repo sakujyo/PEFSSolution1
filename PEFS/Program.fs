@@ -12,11 +12,13 @@ let getAnswer () =
     let cp = System.Diagnostics.Process.GetCurrentProcess()
     let t1 = cp.TotalProcessorTime
 
+    let answer = PEFS.Problem_00011.run()
+
 //    let answer = Problem_0012.run()
 //    let answer = Problem_0016.run(1000)
 //    let answer = Problem_0016.run(5)
 //    let answer = Problem_0067.run()
-    let answer = Problem_0000.run(1234)
+//    let answer = Problem_0000.run(1234)
 
     let t2 = cp.TotalProcessorTime
     printfn "CPU Time: %A" (t2 - t1)
