@@ -9,14 +9,14 @@ module Problem_00011 =
     }
 
     let rec muls lambda (x,y) (problem : int list) count (mul : int) =
-        match ((x,y) |> lambda) with
+        match (x,y) with
             | (-1,_) | (_,-1) | (20,_) | (_,20) -> -1    // 与えられる数は非負と仮定
             | (x,y) ->
                 match count with
                 | 3 ->
                     mul * problem.[y * 20 + x]
                 | _ ->
-                    muls lambda (x,y) problem (count + 1) (mul * problem.[y * 20 + x])
+                    muls lambda ((x,y) |> lambda) problem (count + 1) (mul * problem.[y * 20 + x])
 
     let p11 (problem : int list) =
         seq {
@@ -49,7 +49,6 @@ module Problem_00011 =
                         20;69;36;41;72;30;23;88;34;62;99;69;82;67;59;85;74;04;36;16;
                         20;73;35;29;78;31;90;01;74;31;49;71;48;86;81;16;23;57;05;54;
                         01;70;54;71;83;51;54;69;16;92;33;48;61;43;52;01;89;19;67;48;
-                    ]
-        
+        ]
+
         p11 testdata
-        
