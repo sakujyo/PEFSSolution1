@@ -37,6 +37,17 @@ module PEFSTestModule =
             x.measureCPUTime Assert.That (lazy(PEFS.Problem_0000.run input)) (Is.EqualTo(result)) (sprintf "1234 * %A = %A" input result)
 //            Assert.That (PEFS.Problem_0000.run input, Is.EqualTo(result), sprintf "1234 * %A = %A" input result)
 
+        static member TestData0001 =
+            [|
+                [| 10, 23 |];
+                [| 1000, 233168 |];
+            |]
+        [<Test;Description("Problem 1 Test")>]
+        [<TestCaseSource("TestData0001")>]
+        member x.Problem_0001 (data : int * int) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0001.solve input)) (Is.EqualTo(result)) (sprintf "sum of union of dividable 3 and dividable 5 under %A = %A" input result)
+
         static member TestData0003 =
             [|
                 [| 5M, [5M] |];
