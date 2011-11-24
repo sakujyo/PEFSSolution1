@@ -47,6 +47,7 @@
     <Compile Include="Problem_0011.fs" />
     <Compile Include="Problem_0011rege.fs" />
     <Compile Include="Problem_0012.fs" />
+    <Compile Include="Problem_0013.fs" />
     <Compile Include="Problem_0016.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
