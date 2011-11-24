@@ -39,12 +39,18 @@
     <Reference Include="FSharp.Core" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Problem_0000.fs" />
     <Compile Include="Problem_0001.fs" />
+    <Compile Include="Problem_0002.fs" />
+    <Compile Include="Problem_0002rege.fs" />
     <Compile Include="Problem_0003.fs" />
+    <Compile Include="Problem_0004.fs" />
+    <Compile Include="Problem_0004graphical.fs" />
     <Compile Include="Problem_0011.fs" />
     <Compile Include="Problem_0011rege.fs" />
     <Compile Include="Problem_0012.fs" />

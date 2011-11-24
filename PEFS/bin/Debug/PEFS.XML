@@ -32,6 +32,27 @@
 <member name="">
 
 </member>
+<member name="T:PEFS.Problem_0002">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:PEFS.Problem_0002rege">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
 <member name="">
 
 </member>
@@ -48,6 +69,34 @@
 
 </member>
 <member name="T:PEFS.Problem_0003">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:PEFS.Problem_0004.palindromicNumber(System.Int32,System.Int32,System.Int32)">
+<summary>
+ n が 10進で回文数なら、 palindromicNumber n n 0 は true を返します。
+</summary>
+</member>
+<member name="T:PEFS.Problem_0004">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:PEFS.Problem_0004graphical.palindromicNumber(System.Int32,System.Int32,System.Int32)">
+<summary>
+ n が 10進で回文数なら、 palindromicNumber n n 0 は true を返します。
+</summary>
+</member>
+<member name="T:PEFS.Problem_0004graphical">
 
 </member>
 <member name="">

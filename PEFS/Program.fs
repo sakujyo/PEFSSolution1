@@ -20,7 +20,10 @@ let getAnswer () =
 //    let answer = PEFS.Problem_0012.run()
 //    let answer = PEFS.Problem_0013.run()
 //    let answer = PEFS.Problem_0067.run()
-    let answer = PEFS.Problem_0001.run()
+//    let answer = PEFS.Problem_0001.run()
+//    let answer = PEFS.Problem_0002.run()
+//    let answer = PEFS.Problem_0002rege.run()
+    let answer = PEFS.Problem_0004graphical.run()
 
 //    let answer = PEFS.Problem_0016.run()
 //    let answer = Problem_0067.run()
