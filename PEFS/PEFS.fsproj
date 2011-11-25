@@ -44,6 +44,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library.fs" />
     <Compile Include="Problem_0000.fs" />
     <Compile Include="Problem_0001.fs" />
     <Compile Include="Problem_0002.fs" />
@@ -51,6 +52,9 @@
     <Compile Include="Problem_0003.fs" />
     <Compile Include="Problem_0004.fs" />
     <Compile Include="Problem_0004graphical.fs" />
+    <Compile Include="Problem_0005.fs" />
+    <Compile Include="Problem_0007.fs" />
+    <Compile Include="Problem_0010.fs" />
     <Compile Include="Problem_0011.fs" />
     <Compile Include="Problem_0011rege.fs" />
     <Compile Include="Problem_0012.fs" />

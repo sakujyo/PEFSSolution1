@@ -14,7 +14,6 @@ let getAnswer () =
     let t1 = cp.TotalProcessorTime
 
 //    let answer = PEFS.Problem_0000.run(1234)
-//    let answer = PEFS.Problem_0003.test 37366090917157M
 //    let answer = PEFS.Problem_0011.run()
 //    let answer = PEFS.Problem_0011rege.run()
 //    let answer = PEFS.Problem_0012.run()
@@ -23,7 +22,11 @@ let getAnswer () =
 //    let answer = PEFS.Problem_0001.run()
 //    let answer = PEFS.Problem_0002.run()
 //    let answer = PEFS.Problem_0002rege.run()
-    let answer = PEFS.Problem_0004graphical.run()
+//    let answer = PEFS.Problem_0003.run()
+//    let answer = PEFS.Problem_0005.run()
+//    let answer = PEFS.Problem_0004.run()
+//    let answer = PEFS.Problem_0004graphical.run()
+    let answer = PEFS.Problem_0010.run()
 
 //    let answer = PEFS.Problem_0016.run()
 //    let answer = Problem_0067.run()

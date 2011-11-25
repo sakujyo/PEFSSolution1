@@ -1,20 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll" total="4" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-11-25" time="01:20:55">
+<test-results name="E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll" total="5" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-11-26" time="02:23:55">
   <environment nunit-version="2.5.10.11092" clr-version="2.0.50727.5448" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\sbin\NUnit 2.5.10\bin\net-2.0" machine-name="DC7700" user="m" user-domain="dc7700" />
   <culture-info current-culture="ja-JP" current-uiculture="ja-JP" />
-  <test-suite type="Assembly" name="E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll" executed="True" result="Success" success="True" time="21.366" asserts="0">
+  <test-suite type="Assembly" name="E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll" executed="True" result="Success" success="True" time="16.709" asserts="0">
     <results>
-      <test-suite type="Namespace" name="PEFSTest" executed="True" result="Success" success="True" time="21.362" asserts="0">
+      <test-suite type="Namespace" name="PEFSTest" executed="True" result="Success" success="True" time="16.700" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="PEFSTestModule+MyTest" executed="True" result="Success" success="True" time="21.360" asserts="0">
+          <test-suite type="TestFixture" name="PEFSTestModule+MyTest" executed="True" result="Success" success="True" time="16.696" asserts="0">
             <results>
-              <test-suite type="ParameterizedTest" name="Problem_0004" description="Problem 4 Test" executed="True" result="Success" success="True" time="21.357" asserts="0">
+              <test-suite type="ParameterizedTest" name="Problem_0007" description="Problem 7 Test" executed="True" result="Success" success="True" time="16.688" asserts="0">
                 <results>
-                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0004((1, 9))" executed="True" result="Success" success="True" time="0.003" asserts="1" />
-                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0004((2, 9009))" executed="True" result="Success" success="True" time="0.006" asserts="1" />
-                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0004((3, 906609))" executed="True" result="Success" success="True" time="0.187" asserts="1" />
-                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0004((4, 99000099))" executed="True" result="Success" success="True" time="20.720" asserts="1" />
+                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0007((1, 2))" executed="True" result="Success" success="True" time="0.719" asserts="1" />
+                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0007((6, 13))" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0007((10001, 104743))" executed="True" result="Success" success="True" time="0.087" asserts="1" />
+                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0007((100001, 1299721))" executed="True" result="Success" success="True" time="1.204" asserts="1" />
+                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0007((1000001, 15485867))" executed="True" result="Success" success="True" time="14.098" asserts="1" />
                 </results>
               </test-suite>
             </results>

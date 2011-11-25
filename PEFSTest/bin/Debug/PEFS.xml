@@ -8,6 +8,40 @@
 <member name="">
 
 </member>
+<member name="">
+
+</member>
+<member name="M:PEFS.Library.pFactorsInt(System.Int32,System.Int32,System.Collections.Generic.IEnumerator{System.Int32})">
+<summary>
+ pFactorsInt (n : int) 2 (primes.GetEnumerator()) は n の素因数の decimal list を返す
+</summary>
+</member>
+<member name="M:PEFS.Library.primeFactors(System.Decimal,System.Decimal,System.Collections.Generic.IEnumerator{System.Int32})">
+<summary>
+ primeFactors (n : decimal) 2m (primes.GetEnumerator()) は n の素因数の decimal list を返す
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:PEFS.Library">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
 <member name="T:PEFS.Main">
 
 </member>
@@ -53,11 +87,10 @@
 <member name="">
 
 </member>
-<member name="">
-
-</member>
-<member name="">
-
+<member name="M:PEFS.Problem_0003.primeFactors(System.Decimal,System.Decimal,System.Collections.Generic.IEnumerator{System.Int32})">
+<summary>
+ primeFactors (n : decimal) 2m (primes.GetEnumerator()) は n の素因数の decimal list を返す
+</summary>
 </member>
 <member name="">
 
@@ -77,7 +110,7 @@
 <member name="">
 
 </member>
-<member name="M:PEFS.Problem_0004.palindromicNumber(System.Int32,System.Int32,System.Int32)">
+<member name="M:PEFS.Problem_0004.palindromicNumber(System.Decimal,System.Decimal,System.Decimal)">
 <summary>
  n が 10進で回文数なら、 palindromicNumber n n 0 は true を返します。
 </summary>
@@ -97,6 +130,36 @@
 </summary>
 </member>
 <member name="T:PEFS.Problem_0004graphical">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:PEFS.Problem_0005">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:PEFS.Problem_0007">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:PEFS.Problem_0010">
 
 </member>
 <member name="">

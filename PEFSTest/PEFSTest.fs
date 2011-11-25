@@ -90,16 +90,60 @@ module PEFSTestModule =
 
         static member TestData0004 =
             [|
-                [| 1, 9 |];
-                [| 2, 9009 |];
-                [| 3, 906609 |];
-                [| 4, 99000099 |];
+                [| 1, (9M, 9M, 1M) |];
+                [| 2, (9009M, 99M, 91M) |];
+                [| 3, (906609M, 993M, 913M) |];
+                [| 4, (99000099M, 9999M, 9901M) |];
+                [| 5, (9966006699M, 99979M, 99681M) |];
+//                [| 6, (999000000999M, 999999M, 999001M) |];
+//                [| 7, (99956644665999M, 9998017M, 9997647M) |];
+
+//                [| 8, (9999000000009999M, 99999999M, 99990001M) |];
+//                [| 9, (0M, 0M, 0M) |];
             |]
         [<Test;Description("Problem 4 Test")>]
         [<TestCaseSource("TestData0004")>]
-        member x.Problem_0004 (data : int * int) =
+        member x.Problem_0004 (data : int * (decimal * decimal * decimal)) =
             let input, result = data in
             x.measureCPUTime Assert.That (lazy(PEFS.Problem_0004.solve input)) (Is.EqualTo(result)) (sprintf "the largest palindrome made from the product of two %A-digit numbers = %A" input result)
+
+        static member TestData0005 =
+            [|
+                [| 10M, 2520M |];
+                [| 20M, 232792560M |];
+                [| 23M, 5354228880M |];
+            |]
+        [<Test;Description("Problem 5 Test")>]
+        [<TestCaseSource("TestData0005")>]
+        member x.Problem_0005 (data : decimal * decimal) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0005.solve input)) (Is.EqualTo(result)) (sprintf "the smallest positive number that is evenly divisible by all of the numbers from 1 to %A = %A" input result)
+
+        static member TestData0007 =
+            [|
+                [| 1, 2 |];
+                [| 6, 13 |];
+                [| 10001, 104743 |];
+                [| 100001, 1299721 |];
+                [| 1000001, 15485867 |];
+            |]
+        [<Test;Description("Problem 7 Test")>]
+        [<TestCaseSource("TestData0007")>]
+        member x.Problem_0007 (data : int * int) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0007.solve input)) (Is.EqualTo(result)) (sprintf "the %A th prime number = %A" input result)
+
+        static member TestData0010 =
+            [|
+                [| 10, 17M |];
+                [| 200*10000, 142913828922M |];
+//                [| 2000*10000, 12272577818052M |];  // 13s
+            |]
+        [<Test;Description("Problem 10 Test")>]
+        [<TestCaseSource("TestData0010")>]
+        member x.Problem_0010 (data : int * decimal) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0010.solve input)) (Is.EqualTo(result)) (sprintf "the sum of all the primes below %A = %A" input result)
 
         static member TestData0011 =
             [|
