@@ -53,7 +53,9 @@
     <Compile Include="Problem_0004.fs" />
     <Compile Include="Problem_0004graphical.fs" />
     <Compile Include="Problem_0005.fs" />
+    <Compile Include="Problem_0006.fs" />
     <Compile Include="Problem_0007.fs" />
+    <Compile Include="Problem_0008.fs" />
     <Compile Include="Problem_0010.fs" />
     <Compile Include="Problem_0011.fs" />
     <Compile Include="Problem_0011rege.fs" />

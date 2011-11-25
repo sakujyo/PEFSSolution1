@@ -1,21 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll" total="5" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-11-26" time="02:23:55">
+<test-results name="E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-11-26" time="07:06:27">
   <environment nunit-version="2.5.10.11092" clr-version="2.0.50727.5448" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\sbin\NUnit 2.5.10\bin\net-2.0" machine-name="DC7700" user="m" user-domain="dc7700" />
   <culture-info current-culture="ja-JP" current-uiculture="ja-JP" />
-  <test-suite type="Assembly" name="E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll" executed="True" result="Success" success="True" time="16.709" asserts="0">
+  <test-suite type="Assembly" name="E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll" executed="True" result="Success" success="True" time="0.688" asserts="0">
     <results>
-      <test-suite type="Namespace" name="PEFSTest" executed="True" result="Success" success="True" time="16.700" asserts="0">
+      <test-suite type="Namespace" name="PEFSTest" executed="True" result="Success" success="True" time="0.672" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="PEFSTestModule+MyTest" executed="True" result="Success" success="True" time="16.696" asserts="0">
+          <test-suite type="TestFixture" name="PEFSTestModule+MyTest" executed="True" result="Success" success="True" time="0.670" asserts="0">
             <results>
-              <test-suite type="ParameterizedTest" name="Problem_0007" description="Problem 7 Test" executed="True" result="Success" success="True" time="16.688" asserts="0">
+              <test-suite type="ParameterizedTest" name="Problem_0008" description="Problem 8 Test" executed="True" result="Success" success="True" time="0.660" asserts="0">
                 <results>
-                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0007((1, 2))" executed="True" result="Success" success="True" time="0.719" asserts="1" />
-                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0007((6, 13))" executed="True" result="Success" success="True" time="0.003" asserts="1" />
-                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0007((10001, 104743))" executed="True" result="Success" success="True" time="0.087" asserts="1" />
-                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0007((100001, 1299721))" executed="True" result="Success" success="True" time="1.204" asserts="1" />
-                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0007((1000001, 15485867))" executed="True" result="Success" success="True" time="14.098" asserts="1" />
+                  <test-case name="PEFSTest.PEFSTestModule+MyTest.Problem_0008(((7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450, 5), 40824))" executed="True" result="Success" success="True" time="0.650" asserts="1" />
                 </results>
               </test-suite>
             </results>

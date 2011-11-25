@@ -26,7 +26,9 @@ let getAnswer () =
 //    let answer = PEFS.Problem_0005.run()
 //    let answer = PEFS.Problem_0004.run()
 //    let answer = PEFS.Problem_0004graphical.run()
-    let answer = PEFS.Problem_0010.run()
+//    let answer = PEFS.Problem_0010.run()
+//    let answer = PEFS.Problem_0006.run()
+    let answer = PEFS.Problem_0008.run()
 
 //    let answer = PEFS.Problem_0016.run()
 //    let answer = Problem_0067.run()

@@ -119,6 +119,19 @@ module PEFSTestModule =
             let input, result = data in
             x.measureCPUTime Assert.That (lazy(PEFS.Problem_0005.solve input)) (Is.EqualTo(result)) (sprintf "the smallest positive number that is evenly divisible by all of the numbers from 1 to %A = %A" input result)
 
+        static member TestData0006 =
+            [|
+                [| 10, (2640, 385, 3025) |];
+                [| 100, (25164150, 338350, 25502500) |];
+                [| 1000, (1058313332, 333833500, 1392146832) |];
+//                [| 10000, (25164150, 338350, 25502500) |];  // int overflow
+            |]
+        [<Test;Description("Problem 6 Test")>]
+        [<TestCaseSource("TestData0006")>]
+        member x.Problem_0006 (data : int * (int * int * int)) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0006.solve input)) (Is.EqualTo(result)) (sprintf "the difference between the sum of the squares of the first %A natural numbers and the square of the sum = %A" input result)
+
         static member TestData0007 =
             [|
                 [| 1, 2 |];
@@ -132,6 +145,39 @@ module PEFSTestModule =
         member x.Problem_0007 (data : int * int) =
             let input, result = data in
             x.measureCPUTime Assert.That (lazy(PEFS.Problem_0007.solve input)) (Is.EqualTo(result)) (sprintf "the %A th prime number = %A" input result)
+
+        static member TestData0008 =
+            [|
+                [| ("1234567890", 2), 72 |];
+                [| (
+                   "73167176531330624919225119674426574742355349194934\
+                    96983520312774506326239578318016984801869478851843\
+                    85861560789112949495459501737958331952853208805511\
+                    12540698747158523863050715693290963295227443043557\
+                    66896648950445244523161731856403098711121722383113\
+                    62229893423380308135336276614282806444486645238749\
+                    30358907296290491560440772390713810515859307960866\
+                    70172427121883998797908792274921901699720888093776\
+                    65727333001053367881220235421809751254540594752243\
+                    52584907711670556013604839586446706324415722155397\
+                    53697817977846174064955149290862569321978468622482\
+                    83972241375657056057490261407972968652414535100474\
+                    82166370484403199890008895243450658541227588666881\
+                    16427171479924442928230863465674813919123162824586\
+                    17866458359124566529476545682848912883142607690042\
+                    24219022671055626321111109370544217506941658960408\
+                    07198403850962455444362981230987879927244284909188\
+                    84580156166097919133875499200524063689912560717606\
+                    05886116467109405077541002256983155200055935729725\
+                    71636269561882670428252483600823257530420752963450\
+                ", 5), 40824 |];
+//                [| 10000, (25164150, 338350, 25502500) |];  // int overflow
+            |]
+        [<Test;Description("Problem 8 Test")>]
+        [<TestCaseSource("TestData0008")>]
+        member x.Problem_0008 (data : (string * int) * int) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0008.solve input)) (Is.EqualTo(result)) (sprintf "the greatest product of five consecutive digits in the input-digit number = %A" (*input*) result)
 
         static member TestData0010 =
             [|
