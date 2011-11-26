@@ -39,7 +39,9 @@ let getAnswer () =
     printfn "CPU Time: %A" (t2 - t1)
 
     printfn "%A" answer
-
+    System.Console.ReadLine() |> ignore
+    ()
+    
 open System.Diagnostics
 let main() =
     let stopWatch = new Stopwatch()

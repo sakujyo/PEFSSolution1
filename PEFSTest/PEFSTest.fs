@@ -138,7 +138,7 @@ module PEFSTestModule =
                 [| 6, 13 |];
                 [| 10001, 104743 |];
                 [| 100001, 1299721 |];
-                [| 1000001, 15485867 |];
+//                [| 1000001, 15485867 |];
             |]
         [<Test;Description("Problem 7 Test")>]
         [<TestCaseSource("TestData0007")>]
@@ -474,15 +474,35 @@ module PEFSTestModule =
 
         static member TestData0014 =
             [|
-                [| 100, (97M, 119M) |];
-                [| 999999, (837799M, 525M) |];    // result は漸化の回数=length
+                [| 100, (97, 119) |];
+                [| 999999, (837799, 525) |];    // result は漸化の回数=length
+//                [| 1999999, (1723519, 557) |];    // result は漸化の回数=length
+//                [| 2999999, (2298025, 560) |];    // result は漸化の回数=length
+//                [| 3999999, (3732423, 597) |];    // result は漸化の回数=length
+//                [| 4999999, (3732423, 597) |];    // result は漸化の回数=length
+//                [| 5999999, (5649499, 613) |];    // result は漸化の回数=length
+//                [| 6999999, (6649279, 665) |];    // result は漸化の回数=length
+//                [| 7999999, (6649279, 665) |];    // result は漸化の回数=length
+//                [| 8999999, (8400511, 686) |];    // result は漸化の回数=length
+//                [| 9999999, (8400511, 686) |];    // result は漸化の回数=length
 //                [| 9999999, (8400511M, 686M) |];    // result は漸化の回数=length
             |]
         [<Test;Description("Problem 14 Test")>]
         [<TestCaseSource("TestData0014")>]
-        member x.Problem_0014 (data : int * (decimal * decimal)) =
+        member x.Problem_0014 (data : int * (int * int)) =
             let input, result = data in
             x.measureCPUTime Assert.That (lazy(PEFS.Problem_0014.solve input)) (Is.EqualTo(result)) (sprintf "starting number under %A which make the longest chain = %A" input result)
+
+        static member TestData0021 =
+            [|
+                [| 284, 504 |];                 // 問題の表現を n 以下と考える
+                [| 9999, 31626 |];
+            |]
+        [<Test;Description("Problem 21 Test")>]
+        [<TestCaseSource("TestData0021")>]
+        member x.Problem_0021 (data : int * (int)) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0021.solve input)) (Is.EqualTo(result)) (sprintf "n = %A 以下の友愛数の総和 = %A" input result)
 
         static member TestDataLibPf =
             [|

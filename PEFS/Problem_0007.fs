@@ -2,6 +2,14 @@
 
 open PEFS.Library
 open System
+
+(*
+Problem 7 †
+素数を小さい方から6つ並べると 2, 3, 5, 7, 11, 13 であり、6番目の素数は 13 である。
+
+10001 番目の素数を求めよ。
+*)
+
 let solve (problem : int) =
 //    let generator = fun x ->
 //        if (Math.Log(x |> int) * problem < state) then None
@@ -27,4 +35,4 @@ let solve (problem : int) =
 //            else Some (state + state / 2) 2
 
 let run () =
-    solve 6
+    solve 10001
