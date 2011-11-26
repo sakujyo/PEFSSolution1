@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1035]PEFSTest.PEFSTestModule+MyTest.Problem_0006((1000, (1058313332, 333833500, 1392146832)))</TopNode>
-  <SelectedNode>[0-1044]PEFSTest.PEFSTestModule+MyTest.Problem_0008(((7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450, 5), 40824))</SelectedNode>
+  <TopNode>[0-1042]PEFSTest.PEFSTestModule+MyTest.Problem_0008</TopNode>
+  <SelectedNode>[0-1046]PEFSTest.PEFSTestModule+MyTest.Problem_0009((12, [60]))</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1070]E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll" Expanded="true" />
-    <Node UniqueName="[0-1071]PEFSTest" Expanded="true" />
+    <Node UniqueName="[0-1073]E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\PEFSTest.dll" Expanded="true" />
+    <Node UniqueName="[0-1074]PEFSTest" Expanded="true" />
     <Node UniqueName="[0-1000]PEFSTest.PEFSTestModule+MyTest" Expanded="true" />
     <Node UniqueName="[0-1001]PEFSTest.PEFSTestModule+MyTest.Problem_0000" Expanded="true" />
     <Node UniqueName="[0-1003]PEFSTest.PEFSTestModule+MyTest.Problem_0001" Expanded="true" />
@@ -17,12 +17,13 @@
     <Node UniqueName="[0-1032]PEFSTest.PEFSTestModule+MyTest.Problem_0006" Expanded="true" />
     <Node UniqueName="[0-1036]PEFSTest.PEFSTestModule+MyTest.Problem_0007" Expanded="true" />
     <Node UniqueName="[0-1042]PEFSTest.PEFSTestModule+MyTest.Problem_0008" Expanded="true" />
-    <Node UniqueName="[0-1045]PEFSTest.PEFSTestModule+MyTest.Problem_0010" Expanded="true" />
-    <Node UniqueName="[0-1048]PEFSTest.PEFSTestModule+MyTest.Problem_0011" Expanded="true" />
-    <Node UniqueName="[0-1051]PEFSTest.PEFSTestModule+MyTest.Problem_0012" Expanded="true" />
-    <Node UniqueName="[0-1059]PEFSTest.PEFSTestModule+MyTest.Problem_0013" Expanded="true" />
-    <Node UniqueName="[0-1061]PEFSTest.PEFSTestModule+MyTest.Problem_0016" Expanded="true" />
-    <Node UniqueName="[0-1065]PEFSTest.PEFSTestModule+MyTest.Problem_0018" Expanded="true" />
-    <Node UniqueName="[0-1068]PEFSTest.PEFSTestModule+MyTest.Problem_0067" Expanded="true" />
+    <Node UniqueName="[0-1045]PEFSTest.PEFSTestModule+MyTest.Problem_0009" Expanded="true" />
+    <Node UniqueName="[0-1048]PEFSTest.PEFSTestModule+MyTest.Problem_0010" Expanded="true" />
+    <Node UniqueName="[0-1051]PEFSTest.PEFSTestModule+MyTest.Problem_0011" Expanded="true" />
+    <Node UniqueName="[0-1054]PEFSTest.PEFSTestModule+MyTest.Problem_0012" Expanded="true" />
+    <Node UniqueName="[0-1062]PEFSTest.PEFSTestModule+MyTest.Problem_0013" Expanded="true" />
+    <Node UniqueName="[0-1064]PEFSTest.PEFSTestModule+MyTest.Problem_0016" Expanded="true" />
+    <Node UniqueName="[0-1068]PEFSTest.PEFSTestModule+MyTest.Problem_0018" Expanded="true" />
+    <Node UniqueName="[0-1071]PEFSTest.PEFSTestModule+MyTest.Problem_0067" Expanded="true" />
   </Nodes>
 </VisualState>

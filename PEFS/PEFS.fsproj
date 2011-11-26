@@ -56,11 +56,13 @@
     <Compile Include="Problem_0006.fs" />
     <Compile Include="Problem_0007.fs" />
     <Compile Include="Problem_0008.fs" />
+    <Compile Include="Problem_0009.fs" />
     <Compile Include="Problem_0010.fs" />
     <Compile Include="Problem_0011.fs" />
     <Compile Include="Problem_0011rege.fs" />
     <Compile Include="Problem_0012.fs" />
     <Compile Include="Problem_0013.fs" />
+    <Compile Include="Problem_0014.fs" />
     <Compile Include="Problem_0016.fs" />
     <Compile Include="Problem_0067.fs" />
     <Compile Include="Program.fs" />

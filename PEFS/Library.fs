@@ -39,6 +39,11 @@ let rec primeFactors n p (e : System.Collections.Generic.IEnumerator<int>) =
             else [n]
         | _ -> []
 
+open System
+let pf (n : decimal) =
+    let x = n |> float |> Math.Sqrt |> Math.Ceiling |> int
+    primeFactors n 2m ((primes x).GetEnumerator())
+
 /// pFactorsInt (n : int) 2 (primes.GetEnumerator()) は n の素因数の decimal list を返す
 let rec pFactorsInt n p (e : System.Collections.Generic.IEnumerator<int>) =
     match n with

@@ -179,6 +179,19 @@ module PEFSTestModule =
             let input, result = data in
             x.measureCPUTime Assert.That (lazy(PEFS.Problem_0008.solve input)) (Is.EqualTo(result)) (sprintf "the greatest product of five consecutive digits in the input-digit number = %A" (*input*) result)
 
+        static member TestData0009 =
+            [|
+                [| 12M, [60M;] |];      // ピタゴラスの3つ組の和が1000になるような
+                [| 100M, [] |];         // a, b, c の積を結果とする
+                [| 1000M, [31875000M;] |];
+//                [| 10000M, [31875000000M;] |];
+            |]
+        [<Test;Description("Problem 9 Test")>]
+        [<TestCaseSource("TestData0009")>]
+        member x.Problem_0009 (data : decimal * decimal list) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0009.solve input)) (Is.EqualTo(result)) (sprintf "the Pythagorean triplet for which a + b + c = %A is %A" input result)
+
         static member TestData0010 =
             [|
                 [| 10, 17M |];
@@ -458,6 +471,31 @@ module PEFSTestModule =
         member x.Problem_0013 (data : (string list * int * int) * string) =
             let input, result = data in
             x.measureCPUTime Assert.That (lazy(PEFS.Problem_0013.solve input)) (Is.EqualTo(result)) (sprintf "largest 10 columns of the SUMMATION = %A" result)
+
+        static member TestData0014 =
+            [|
+                [| 100, (97M, 119M) |];
+                [| 999999, (837799M, 525M) |];    // result は漸化の回数=length
+//                [| 9999999, (8400511M, 686M) |];    // result は漸化の回数=length
+            |]
+        [<Test;Description("Problem 14 Test")>]
+        [<TestCaseSource("TestData0014")>]
+        member x.Problem_0014 (data : int * (decimal * decimal)) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0014.solve input)) (Is.EqualTo(result)) (sprintf "starting number under %A which make the longest chain = %A" input result)
+
+        static member TestDataLibPf =
+            [|
+                [| 6M, [2M; 3M] |];
+                [| 97M, [97M] |];
+                [| 837799M, [653M; 1283M] |];
+                [| 8400511M, [7M; 7M; 171439M] |];
+            |]
+        [<Test;Description("Library PF Test")>]
+        [<TestCaseSource("TestDataLibPf")>]
+        member x.Problem_LibPf (data : decimal * decimal list) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Library.pf input)) (Is.EqualTo(result)) (sprintf "prime factors of %A = %A" input result)
 
         static member TestData0016 =
             [|
