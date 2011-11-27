@@ -517,6 +517,23 @@ module PEFSTestModule =
             let input, result = data in
             x.measureCPUTime Assert.That (lazy(PEFS.Library.pf input)) (Is.EqualTo(result)) (sprintf "prime factors of %A = %A" input result)
 
+        static member TestData0015 =
+            [|
+                [| (2, 2), 6I |];
+                [| (3, 2), 10I |];
+                [| (20, 20), 137846528820I |];
+                [| (30, 30), 118264581564861424I |];
+                [| (40, 40), 107507208733336176461620I |];
+                [| (100, 100), 90548514656103281165404177077484163874504589675413336841320I |];
+                [| (100, 90), 69815264740244873283501787880835665327034164903689363110I |];
+            |]
+        [<Test;Description("Problem 15 Test")>]
+        [<TestCaseSource("TestData0015")>]
+        member x.Problem_0015 (data : (int * int) * bigint) =
+            let input, result = data in
+            let px, py = input
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0015.solve px py)) (Is.EqualTo(result)) (sprintf "%A * %A のマス目を左上から右下まで最短ルートで行くたどりかたの数 = %A" px py result)
+
         static member TestData0016 =
             [|
                 [| 8, 13 |];

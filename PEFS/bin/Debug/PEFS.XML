@@ -11,6 +11,9 @@
 <member name="">
 
 </member>
+<member name="">
+
+</member>
 <member name="M:PEFS.Library.pFactorsInt(System.Int32,System.Int32,System.Collections.Generic.IEnumerator{System.Int32})">
 <summary>
  pFactorsInt (n : int) 2 (primes.GetEnumerator()) は n の素因数の decimal list を返す
@@ -320,6 +323,24 @@
 
 </member>
 <member name="T:PEFS.Problem_0014">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:PEFS.Problem_0015">
 
 </member>
 <member name="">

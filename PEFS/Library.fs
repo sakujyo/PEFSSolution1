@@ -39,6 +39,7 @@ let rec primeFactors n p (e : System.Collections.Generic.IEnumerator<int>) =
             else [n]
         | _ -> []
 
+  
 open System
 let pf (n : decimal) =
     let x = n |> float |> Math.Sqrt |> Math.Ceiling |> int
@@ -111,6 +112,17 @@ let intLCM (a : int) (b : int) =
                 | true -> yield! maxFactorI
                 | false -> yield! minFactorI
     } |> Seq.fold (*) 1
+
+// int n = 12 程度までしか正しい値は返らない
+// decimal n = 27M 程度までしか正しい値は返らない
+let rec factorial n =
+    match n with
+        | 0M -> 1M
+        | 1M -> 1M
+        | _ -> n * factorial (n - 1M)
+
+
+
 //let lcm (a : int) (b : int) =
 //    let max = if a > b then a else b
 //    let min = if a > b then b else a
