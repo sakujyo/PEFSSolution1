@@ -546,6 +546,17 @@ module PEFSTestModule =
             let input, result = data in
             x.measureCPUTime Assert.That (lazy(PEFS.Problem_0016.solve input)) (Is.EqualTo(result)) (sprintf "sum of the digits of the number 2^%d = %d" input result)
 
+        static member TestData0017 =
+            [|
+                [| 5, 19 |];
+                [| 1000, 21124 |];
+            |]
+        [<Test;Description("Problem 17 Test")>]
+        [<TestCaseSource("TestData0017")>]
+        member x.Problem_0017 (data : int * int) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0017.solve input)) (Is.EqualTo(result)) (sprintf "the number of letters when write down %d numbers = %d" input result)
+
         static member TestData0018 =
             [|
                 (([|
@@ -578,6 +589,17 @@ module PEFSTestModule =
         member x.Problem_0018 (data : (int[][] * int) * int) =
             let input, result = data in
             x.measureCPUTime Assert.That (lazy(PEFS.Problem_0067.solve input)) (Is.EqualTo(result)) (sprintf "the maximum total from top to bottom of the triangle %A = %d" input result)
+
+        static member TestData0020 =
+            [|
+                [| 4I, 6I |];
+                [| 100I, 648I |];
+            |]
+        [<Test;Description("Problem 20 Test")>]
+        [<TestCaseSource("TestData0020")>]
+        member x.Problem_0020 (data : bigint * bigint) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0020.solve input)) (Is.EqualTo(result)) (sprintf "the sum of each column of (factorial %A) = %A" input result)
 
         static member TestData0067 =
             [|

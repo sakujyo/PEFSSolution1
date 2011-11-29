@@ -65,6 +65,10 @@
     <Compile Include="Problem_0014.fs" />
     <Compile Include="Problem_0015.fs" />
     <Compile Include="Problem_0016.fs" />
+    <Compile Include="Problem_0017.fs" />
+    <Compile Include="BCD.fs" />
+    <Compile Include="Problem_0019.fs" />
+    <Compile Include="Problem_0020.fs" />
     <Compile Include="Problem_0021.fs" />
     <Compile Include="Problem_0067.fs" />
     <Compile Include="Program.fs" />

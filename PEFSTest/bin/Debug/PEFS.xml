@@ -2,6 +2,9 @@
 <doc>
 <assembly><name>PEFS</name></assembly>
 <members>
+<member name="T:BCD">
+
+</member>
 <member name="">
 
 </member>
@@ -350,6 +353,66 @@
 
 </member>
 <member name="T:PEFS.Problem_0016">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:PEFS.Problem_0017">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:PEFS.Problem_0019">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:PEFS.Problem_0020">
 
 </member>
 <member name="">
