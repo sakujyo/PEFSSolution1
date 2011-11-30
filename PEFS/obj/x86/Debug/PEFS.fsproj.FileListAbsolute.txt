@@ -10,3 +10,6 @@ E:\m\VS2010Project\PEFSSolution1\PEFS\bin\Debug\PEFS.pdb
 E:\m\VS2010Project\PEFSSolution1\PEFS\obj\x86\Debug\ResolveAssemblyReference.cache
 E:\m\VS2010Project\PEFSSolution1\PEFS\obj\x86\Debug\PEFS.exe
 E:\m\VS2010Project\PEFSSolution1\PEFS\obj\x86\Debug\PEFS.pdb
+E:\m\VS2010Project\PEFSSolution1\PEFS\bin\Debug\Interop.WMPLib.dll
+E:\m\VS2010Project\PEFSSolution1\PEFS\obj\x86\Debug\Interop.WMPLib.dll
+E:\m\VS2010Project\PEFSSolution1\PEFS\obj\x86\Debug\PEFS.fsproj.ResolveComReference.cache

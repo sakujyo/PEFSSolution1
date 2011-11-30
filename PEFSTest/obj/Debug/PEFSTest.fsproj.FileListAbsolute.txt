@@ -20,3 +20,4 @@ E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\nunit.framework.xml
 E:\m\VS2010Project\PEFSSolution1\PEFSTest\obj\Debug\ResolveAssemblyReference.cache
 E:\m\VS2010Project\PEFSSolution1\PEFSTest\obj\Debug\PEFSTest.dll
 E:\m\VS2010Project\PEFSSolution1\PEFSTest\obj\Debug\PEFSTest.pdb
+E:\m\VS2010Project\PEFSSolution1\PEFSTest\bin\Debug\Interop.WMPLib.dll

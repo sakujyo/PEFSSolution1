@@ -2,6 +2,8 @@
 
 open System
 
+let wsize = 44100  // 時間処理を行うときの現時点から過去の標本数
+
 let readFile filename =
 //    let f = new IO.BufferedStream(new IO.FileStream(filename, IO.FileMode.Open, System.IO.FileAccess.Read))
     let f = new IO.FileStream(filename, IO.FileMode.Open, System.IO.FileAccess.Read)
@@ -53,14 +55,104 @@ let inline filter4 (lv : int) (rv : int) (index : int) (ls : int array) (rs : in
     // ソフト化。。的(ローパスフィルタ)
     (ls |> Array.sum) / ls.Length, (rs |> Array.sum) / rs.Length
 
-let inline filter (lv : int) (rv : int) (index : int) (ls : int array) (rs : int array) =
-//    let la = Array.average(ls)
-//    let ra = Array.average(rs)
-//    (Array.average(ls), Array.average(rs))
-    (ls |> Array.sum) / ls.Length, (rs |> Array.sum) / rs.Length
-//    (ls |> Array.sum) / 2, (rs |> Array.sum) / 2
-//    let la = Array.average(ls)
-//    let ra = Array.average(rs)
+let inline filter5 (j : int) (ls : int array) (rs : int array) =
+    // ステレオコーラス
+    // 左:原音+30ms遅れ程度 右:原音+60ms遅れ程度
+    let c = 2646
+    let delay = match c > wsize with
+                | true  -> wsize
+                | false -> c
+    let i = j + (wsize - 1) - delay
+
+    (ls.[i + 0] + ls.[i + 1] + ls.[i + (delay/2) - 1] + ls.[i + (delay/2) - 2]) / 4, (rs.[i + 0] + rs.[i + 1] + rs.[i + delay - 1] + rs.[i + delay - 2]) / 4
+
+let inline filter6 (j : int) (ls : int array) (rs : int array) =
+    // ドナルド化
+    //ls, rs (末尾がそれぞれ lv, rv)から新しい標本を合成(変換)する関数
+
+//    (ls |> Array.sum) / ls.Length, (rs |> Array.sum) / rs.Length
+//    (ls.[0] + ls.[wsize - 1]) / 2, (rs.[0] + rs.[wsize - 1]) / 2
+    // 左:原音+30ms遅れ程度 右:原音+60ms遅れ程度
+    let c = 2646
+    let delay0 = match c > wsize with
+                    | true  -> wsize
+                    | false -> c
+    let cycle = System.Math.Sin(System.Math.PI * float(j) / float(delay0)) / 2.0 + 0.5                   
+    let delay = (float(delay0) * cycle) |> int
+    let i = j + (wsize - 1) - delay
+
+    (ls.[i + 0] + ls.[i + 1] + ls.[i + (delay/2) - 1] + ls.[i + (delay/2) - 2]) / 4, (rs.[i + 0] + rs.[i + 1] + rs.[i + delay - 1] + rs.[i + delay - 2]) / 4
+//    (ls.[i + (delay/2) - 1] + ls.[i + (delay/2) - 2]) / 2, (rs.[i + delay - 1] + rs.[i + delay - 2]) / 2
+
+let inline filter7 (j : int) (ls : int array) (rs : int array) =
+    // チアリーダー化
+    //ls, rs (末尾がそれぞれ lv, rv)から新しい標本を合成(変換)する関数
+
+//    (ls |> Array.sum) / ls.Length, (rs |> Array.sum) / rs.Length
+//    (ls.[0] + ls.[wsize - 1]) / 2, (rs.[0] + rs.[wsize - 1]) / 2
+    // 左:原音+30ms遅れ程度 右:原音+60ms遅れ程度
+    let c = 2646
+    let delay0 = match c > wsize with
+                    | true  -> wsize
+                    | false -> c
+//    let cycle = System.Math.Sin(System.Math.PI * float(j) / float(delay0)) / 2.0 + 0.5                   
+    let i = j + (wsize - 1) - delay0
+    let cycle0 = (float(ls.[i + delay0 - 1]) - float(ls.[i + delay0 - 2])) / 3000.0
+    let cycle = if cycle0 > 1.0 then 1.0 else cycle0
+    let delay = (float(delay0) * cycle) |> int
+
+    (ls.[i + 0] + ls.[i + 1] + ls.[i + (delay/2) - 1] + ls.[i + (delay/2) - 2]) / 4, (rs.[i + 0] + rs.[i + 1] + rs.[i + delay - 1] + rs.[i + delay - 2]) / 4
+//    (ls.[i + (delay/2) - 1] + ls.[i + (delay/2) - 2]) / 2, (rs.[i + delay - 1] + rs.[i + delay - 2]) / 2
+
+let inline filter8 (j : int) (ls : int array) (rs : int array) =
+    // 微分キラキラ化
+    //ls, rs (末尾がそれぞれ lv, rv)から新しい標本を合成(変換)する関数
+
+//    (ls |> Array.sum) / ls.Length, (rs |> Array.sum) / rs.Length
+//    (ls.[0] + ls.[wsize - 1]) / 2, (rs.[0] + rs.[wsize - 1]) / 2
+    // 左:原音+30ms遅れ程度 右:原音+60ms遅れ程度
+    let c = 2646
+    let delay0 = match c > wsize with
+                    | true  -> wsize
+                    | false -> c
+//    let cycle = System.Math.Sin(System.Math.PI * float(j) / float(delay0)) / 2.0 + 0.5                   
+    let i = j + (wsize - 1) - delay0
+    let lcycle0 = (float(ls.[i + delay0 - 1]) - float(ls.[i + delay0 - 2])) / 3000.0
+    let rcycle0 = (float(rs.[i + delay0 - 1]) - float(rs.[i + delay0 - 2])) / 3000.0
+    let lcycle1 = if lcycle0 > 1.0 then 1.0 else lcycle0
+    let rcycle1 = if rcycle0 > 1.0 then 1.0 else rcycle0
+    let lcycle  = if lcycle1 < -1.0 then -1.0 else lcycle1
+    let rcycle  = if rcycle1 < -1.0 then -1.0 else rcycle1
+    let ldif = int(32767.0 * lcycle)
+    let rdif = int(32767.0 * rcycle)
+//    let delay = (float(delay0) * cycle) |> int
+    ldif, rdif
+
+//let inline filter (lv : int) (rv : int) (index : int) (ls : int array) (rs : int array) =
+let inline filter (j : int) (ls : int array) (rs : int array) =
+    //ls, rs (末尾がそれぞれ lv, rv)から新しい標本を合成(変換)する関数
+
+//    (ls |> Array.sum) / ls.Length, (rs |> Array.sum) / rs.Length
+//    (ls.[0] + ls.[wsize - 1]) / 2, (rs.[0] + rs.[wsize - 1]) / 2
+    // 左:原音+30ms遅れ程度 右:原音+60ms遅れ程度
+    let c = 2646
+    let delay0 = match c > wsize with
+                    | true  -> wsize
+                    | false -> c
+//    let cycle = System.Math.Sin(System.Math.PI * float(j) / float(delay0)) / 2.0 + 0.5                   
+    let i = j + (wsize - 1) - delay0
+    let lcycle0 = (float(ls.[i + delay0 - 1]) - float(ls.[i + delay0 - 2])) / 3000.0
+    let rcycle0 = (float(rs.[i + delay0 - 1]) - float(rs.[i + delay0 - 2])) / 3000.0
+    let lcycle1 = if lcycle0 > 1.0 then 1.0 else lcycle0
+    let rcycle1 = if rcycle0 > 1.0 then 1.0 else rcycle0
+    let lcycle  = if lcycle1 < -1.0 then -1.0 else lcycle1
+    let rcycle  = if rcycle1 < -1.0 then -1.0 else rcycle1
+    let ldif = int(32767.0 * lcycle)
+    let rdif = int(32767.0 * rcycle)
+//    let delay = (float(delay0) * cycle) |> int
+    ldif, rdif
+//    (ls.[i + 0] + ls.[i + 1] + ls.[i + (delay/2) - 1] + ls.[i + (delay/2) - 2]) / 4, (rs.[i + 0] + rs.[i + 1] + rs.[i + delay - 1] + rs.[i + delay - 2]) / 4
+//    (ls.[i + (delay/2) - 1] + ls.[i + (delay/2) - 2]) / 2, (rs.[i + delay - 1] + rs.[i + delay - 2]) / 2
 
 let convert (buf : byte array) (index : int) f =
 //    for i in 0..buf.Length - 1 do
@@ -100,30 +192,35 @@ let convert (buf : byte array) (index : int) f =
 //        rn.[i] <- b
 //
 
-    let wsize = 32
 //    let ld = Array.create (16) 0
 //    let rd = Array.create (16) 0
     let ld = Array.create (wsize - 1) 0
     let rd = Array.create (wsize - 1) 0
 
-    let ls = Array.concat [ld; la] |> Array.toSeq |> Seq.windowed (wsize)
-    let rs = Array.concat [rd; ra] |> Array.toSeq |> Seq.windowed (wsize)
+    //windowed を列挙するとヒープにwindowサイズのこまぎれの領域を取るので良くない
+//    let ls = Array.concat [ld; la] |> Array.toSeq |> Seq.windowed (wsize)
+//    let rs = Array.concat [rd; ra] |> Array.toSeq |> Seq.windowed (wsize)
 //    let ls = Array.concat [ld; la] |> Array.toSeq |> Seq.windowed (2)
 //    let rs = Array.concat [rd; ra] |> Array.toSeq |> Seq.windowed (2)
+    let lc = Array.concat [ld; la]
+    let rc = Array.concat [rd; ra]
 
     printfn "変換開始..."
-    let le = ls.GetEnumerator()
-    let re = ls.GetEnumerator()
+//    let le = ls.GetEnumerator()
+//    let re = ls.GetEnumerator()
     for i in 0..len - 1 do
         //変換はここ
 //        let lv, rv = f la.[i] ra.[i] i (Seq.nth i ls) (Seq.nth i rs)
         // IEnumerable に対する nth は Enumerable の利点を無駄にするかも(アクセス時にEnumerateしてしまう？)
 //        let lv, rv = f la.[i] ra.[i] i [|1|] [|1|]
-        le.MoveNext() |> ignore
-        re.MoveNext() |> ignore
+
+//        le.MoveNext() |> ignore
+//        re.MoveNext() |> ignore
+
 //        let lv, rv = f la.[i] ra.[i] i (le.Current) (re.Current)
         f |> Seq.iter (fun filter ->
-            let lv, rv = filter la.[i] ra.[i] i (le.Current) (re.Current)
+//            let lv, rv = filter la.[i] ra.[i] i (le.Current) (re.Current)
+            let lv, rv = filter i lc rc
 
             ln.[i] <- lv
             rn.[i] <- rv
@@ -151,9 +248,22 @@ let writeFile filename (buf : byte array) =
     f.Write(buf, 0, buf.Length)
 //    f.Flush()
     f.Close()
-            
+
+open WMPLib            
 let run () =
-    let buf = readFile @"D:\t\Den_en.wav"
-    writeFile @"D:\t\Den_en_out.wav" (convert buf 44 ([filter4; filter3]))
+//    let outfile = @"D:\t\Den_en_out.wav"
+    let infile = @"D:\t\BMSakasama.wav"
+    let outfile = @"D:\t\BMSakasama_out.wav"
+    let buf = readFile infile
+//    writeFile @"D:\t\Den_en_out.wav" (convert buf 44 ([filter4; filter3]))
+    writeFile outfile (convert buf 44 ([filter;]))
 //    let buf = readFile @"D:\t\Complicated.wav"
 //    writeFile @"D:\t\Complicated_out.wav" (convert buf 44 filter2)
+    let wm = new WMPLib.WindowsMediaPlayerClass()
+            //wm.settings.volume = 70;
+            //wm.URL = @"C:\m\work\doraque\dq04.wav";
+            //wm.controls.play();
+            //wm.settings.setMode("loop", true);
+    wm.settings.volume <- 40;
+    wm.URL <- outfile
+    wm.controls.play()
