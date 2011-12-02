@@ -21,11 +21,11 @@ let inline isAbundant n =
             | _ -> sf n sum (d + 1)
     (sf n 0 1) > n + n
 
-let solve (problem : int) =
-    let an = [| 1..problem |] |> Array.filter isAbundant
-    let af = [| 0..problem |] |> Array.map isAbundant
+let solve (yoy: int) =
+    let an = [| 0..yoy |] |> Array.filter isAbundant
+    let af = [| 0..yoy |] |> Array.map isAbundant
 
-    seq { 1..problem }
+    seq { 1..yoy }
     |> Seq.filter (
         fun n -> an |> Seq.filter (fun a -> a < n)                  // n より小さい an のすべての要素について、
                     |> Seq.forall (fun a -> af.[n - a] = false)     // n - a が過剰数となるような a が存在しない

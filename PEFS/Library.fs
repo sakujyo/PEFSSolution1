@@ -39,6 +39,15 @@ let rec primeFactors n p (e : System.Collections.Generic.IEnumerator<int>) =
             else [n]
         | _ -> []
 
+// RemoveNthElement alist [] index
+let rec RemoveNthElement listn listx n =
+    match listn with
+        | head :: tail ->
+            match n with
+                | 0 -> listx@tail
+                | _ -> RemoveNthElement tail (listx@[head]) (n - 1)
+        | [] -> listx       //n がリストの長さ以上だった場合      
+
   
 open System
 let pf (n : decimal) =
