@@ -601,6 +601,17 @@ module PEFSTestModule =
             let input, result = data in
             x.measureCPUTime Assert.That (lazy(PEFS.Problem_0020.solve input)) (Is.EqualTo(result)) (sprintf "the sum of each column of (factorial %A) = %A" input result)
 
+        static member TestData0023 =
+            [|
+                [| 100, 2766 |];
+                [| 28123, 4179871 |];
+            |]
+        [<Test;Description("Problem 23 Test")>]
+        [<TestCaseSource("TestData0023")>]
+        member x.Problem_0023 (data : int * int) =
+            let input, result = data in
+            x.measureCPUTime Assert.That (lazy(PEFS.Problem_0023.solve input)) (Is.EqualTo(result)) (sprintf "the sum of all the positive integers which cannot be written as the sum of two abundant numbers below %A = %A" input result)
+
         static member TestData0067 =
             [|
 

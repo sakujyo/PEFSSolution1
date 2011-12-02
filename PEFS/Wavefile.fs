@@ -62,7 +62,8 @@ let inline filter5 (j : int) (ls : int array) (rs : int array) =
     let delay = match c > wsize with
                 | true  -> wsize
                 | false -> c
-    let i = j + (wsize - 1) - delay
+//    let i = j + (wsize - 1) - delay
+    let i = j + (wsize) - delay
 
     (ls.[i + 0] + ls.[i + 1] + ls.[i + (delay/2) - 1] + ls.[i + (delay/2) - 2]) / 4, (rs.[i + 0] + rs.[i + 1] + rs.[i + delay - 1] + rs.[i + delay - 2]) / 4
 
@@ -79,7 +80,8 @@ let inline filter6 (j : int) (ls : int array) (rs : int array) =
                     | false -> c
     let cycle = System.Math.Sin(System.Math.PI * float(j) / float(delay0)) / 2.0 + 0.5                   
     let delay = (float(delay0) * cycle) |> int
-    let i = j + (wsize - 1) - delay
+//    let i = j + (wsize - 1) - delay
+    let i = j + (wsize) - delay0
 
     (ls.[i + 0] + ls.[i + 1] + ls.[i + (delay/2) - 1] + ls.[i + (delay/2) - 2]) / 4, (rs.[i + 0] + rs.[i + 1] + rs.[i + delay - 1] + rs.[i + delay - 2]) / 4
 //    (ls.[i + (delay/2) - 1] + ls.[i + (delay/2) - 2]) / 2, (rs.[i + delay - 1] + rs.[i + delay - 2]) / 2
@@ -96,7 +98,8 @@ let inline filter7 (j : int) (ls : int array) (rs : int array) =
                     | true  -> wsize
                     | false -> c
 //    let cycle = System.Math.Sin(System.Math.PI * float(j) / float(delay0)) / 2.0 + 0.5                   
-    let i = j + (wsize - 1) - delay0
+//    let i = j + (wsize - 1) - delay0
+    let i = j + (wsize) - delay0
     let cycle0 = (float(ls.[i + delay0 - 1]) - float(ls.[i + delay0 - 2])) / 3000.0
     let cycle = if cycle0 > 1.0 then 1.0 else cycle0
     let delay = (float(delay0) * cycle) |> int
@@ -116,7 +119,8 @@ let inline filter8 (j : int) (ls : int array) (rs : int array) =
                     | true  -> wsize
                     | false -> c
 //    let cycle = System.Math.Sin(System.Math.PI * float(j) / float(delay0)) / 2.0 + 0.5                   
-    let i = j + (wsize - 1) - delay0
+//    let i = j + (wsize - 1) - delay0
+    let i = j + (wsize) - delay0
     let lcycle0 = (float(ls.[i + delay0 - 1]) - float(ls.[i + delay0 - 2])) / 3000.0
     let rcycle0 = (float(rs.[i + delay0 - 1]) - float(rs.[i + delay0 - 2])) / 3000.0
     let lcycle1 = if lcycle0 > 1.0 then 1.0 else lcycle0
@@ -129,30 +133,53 @@ let inline filter8 (j : int) (ls : int array) (rs : int array) =
     ldif, rdif
 
 //let inline filter (lv : int) (rv : int) (index : int) (ls : int array) (rs : int array) =
-let inline filter (j : int) (ls : int array) (rs : int array) =
-    //ls, rs (末尾がそれぞれ lv, rv)から新しい標本を合成(変換)する関数
+let mutable feedbackL = 0.0
+let mutable feedbackR = 0.0
+let feedqueL = ref (Array.create (441) 0.0)
+let feedqueR = ref (Array.create (441) 0.0)
 
+let (*inline *)filter (j : int) (ls : int array) (rs : int array) =
+    //ls, rs (末尾がそれぞれ lv, rv)から新しい標本を合成(変換)する関数
+    //ディレイ、エコー、コーラス
+    //ディストーション、オーバードライブ、フィードバック
+    //リバーブ、ワウ
 //    (ls |> Array.sum) / ls.Length, (rs |> Array.sum) / rs.Length
 //    (ls.[0] + ls.[wsize - 1]) / 2, (rs.[0] + rs.[wsize - 1]) / 2
     // 左:原音+30ms遅れ程度 右:原音+60ms遅れ程度
-    let c = 2646
+    
+
+    let c = 0   //現在時刻の音を次以降にフィードバック
     let delay0 = match c > wsize with
                     | true  -> wsize
                     | false -> c
 //    let cycle = System.Math.Sin(System.Math.PI * float(j) / float(delay0)) / 2.0 + 0.5                   
     let i = j + (wsize - 1) - delay0
-    let lcycle0 = (float(ls.[i + delay0 - 1]) - float(ls.[i + delay0 - 2])) / 3000.0
-    let rcycle0 = (float(rs.[i + delay0 - 1]) - float(rs.[i + delay0 - 2])) / 3000.0
-    let lcycle1 = if lcycle0 > 1.0 then 1.0 else lcycle0
-    let rcycle1 = if rcycle0 > 1.0 then 1.0 else rcycle0
-    let lcycle  = if lcycle1 < -1.0 then -1.0 else lcycle1
-    let rcycle  = if rcycle1 < -1.0 then -1.0 else rcycle1
-    let ldif = int(32767.0 * lcycle)
-    let rdif = int(32767.0 * rcycle)
-//    let delay = (float(delay0) * cycle) |> int
-    ldif, rdif
-//    (ls.[i + 0] + ls.[i + 1] + ls.[i + (delay/2) - 1] + ls.[i + (delay/2) - 2]) / 4, (rs.[i + 0] + rs.[i + 1] + rs.[i + delay - 1] + rs.[i + delay - 2]) / 4
-//    (ls.[i + (delay/2) - 1] + ls.[i + (delay/2) - 2]) / 2, (rs.[i + delay - 1] + rs.[i + delay - 2]) / 2
+//    feedbackL <- feedbackL + float(ls.[i]) / 0.1
+    let e = 0.99
+    let d = 20
+    feedbackL <- (!feedqueL).[d - 1] * e + float(ls.[i]) //* (30000.0 * 30000.0) / (feedbackL * feedbackL)
+    for i in d - 1..-1..1 do (!feedqueL).[i] <- (!feedqueL).[i - 1]
+    (!feedqueL).[0] <- feedbackL
+//    feedbackL <- feedbackL - (feedbackL * (e - 1.0))
+//    feedbackL <- feedbackL - (feedbackL * (e - 1.0))
+    let outL = match feedbackL with
+                    | f when f > 30000.0 -> 30000.0
+                    | f when f < -30000.0 -> -30000.0
+                    | f -> f
+//    feedbackR <- (feedbackR + float(rs.[i])) * e
+//    feedbackR <- feedbackR - (feedbackR * (e - 1.0))
+//    feedbackR <- match feedbackR with
+//                    | f when f > 30000.0 -> 30000.0
+//                    | f when f < -30000.0 -> -30000.0
+//                    | f -> f
+
+//    int (feedbackL), int (feedbackR)
+//    int (feedbackL), int (feedbackL)
+    int (outL), int (outL)
+
+
+
+
 
 let convert (buf : byte array) (index : int) f =
 //    for i in 0..buf.Length - 1 do
@@ -251,11 +278,13 @@ let writeFile filename (buf : byte array) =
 
 open WMPLib            
 let run () =
-//    let outfile = @"D:\t\Den_en_out.wav"
-    let infile = @"D:\t\BMSakasama.wav"
-    let outfile = @"D:\t\BMSakasama_out.wav"
+    let infile = @"D:\t\Den_en.wav"
+    let outfile = @"D:\t\Den_en_out.wav"
+//    let infile = @"D:\t\BMSakasama.wav"
+//    let outfile = @"D:\t\BMSakasama_out.wav"
     let buf = readFile infile
 //    writeFile @"D:\t\Den_en_out.wav" (convert buf 44 ([filter4; filter3]))
+//    writeFile outfile (convert buf 44 ([filter6;]))
     writeFile outfile (convert buf 44 ([filter;]))
 //    let buf = readFile @"D:\t\Complicated.wav"
 //    writeFile @"D:\t\Complicated_out.wav" (convert buf 44 filter2)

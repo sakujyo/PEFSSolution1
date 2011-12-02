@@ -33,15 +33,20 @@ let getAnswer () =
 //    let answer = PEFS.Problem_0014.run()
 //    let answer = PEFS.Problem_0015.run()
 //    let answer = PEFS.Problem_0019.run()
-    let answer = Wavefile.run()
+//    let answer = Wavefile.run()
+//    let answer = PEFS.Problem_0020.run()
+//    let answer = PEFS.Problem_0022.run()
+    let answer = PEFS.Problem_0023.run()
+//    let answer = PEFS.Problem_0023rege.run()
 
 //    let answer = PEFS.Problem_0016.run()
 //    let answer = Problem_0067.run()
+    printfn "%A" answer
 
     let t2 = cp.TotalProcessorTime
     printfn "CPU Time: %A" (t2 - t1)
 
-    printfn "%A" answer
+//    printfn "%A" answer
     System.Console.ReadLine() |> ignore
     ()
     
