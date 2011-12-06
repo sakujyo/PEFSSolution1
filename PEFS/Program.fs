@@ -38,7 +38,8 @@ let getAnswer () =
 //    let answer = PEFS.Problem_0022.run()
 //    let answer = PEFS.Problem_0023.run()
 //    let answer = PEFS.Problem_0023rege.run()
-    let answer = PEFS.Problem_0024.run()
+//    let answer = PEFS.Problem_0024.run()
+    let answer = PEFS.Problem_0026.run()
 
 //    let answer = PEFS.Problem_0016.run()
 //    let answer = Problem_0067.run()
